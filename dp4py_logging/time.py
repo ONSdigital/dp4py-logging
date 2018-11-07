@@ -16,6 +16,7 @@ def timeit(method):
         te = time()
         logging.info("Recorded execution time", extra={
             "method": method.__name__,
+            "module": method.__module__,
             "time(ms)": (te - ts) * 1000
         })
         return result
