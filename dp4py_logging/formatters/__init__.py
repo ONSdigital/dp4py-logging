@@ -8,7 +8,8 @@ level_style_dict = {
     'INFO': 'rainbow_dash',
     'DEBUG': 'default',
     'WARN': 'monokai',
-    'ERROR': 'vim'
+    'ERROR': 'vim',
+    'TRACE': 'emacs'
 }
 
 
