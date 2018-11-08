@@ -1,12 +1,23 @@
 """
 Adds decorator to log execution times
 """
+import os
 import logging
 
 from inspect import isawaitable
 from time import time
 
-_is_debug = logging.getLogger().getEffectiveLevel() == logging.DEBUG
+
+def is_debug():
+    try:
+        level_is_debug = os.environ.get("LOG_LEVEL", "INFO").upper() == "DEBUG"
+        return level_is_debug
+    except Exception as e:
+        logging.error("Error checking 'LOG_LEVEL'", exc_info=e)
+        return False
+
+
+_is_debug = is_debug()
 
 
 def timeit(method):
